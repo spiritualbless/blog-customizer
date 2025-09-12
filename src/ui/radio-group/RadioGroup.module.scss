@@ -30,6 +30,21 @@
 	text-align: center;
 	border-right: 1px solid #000000;
 	cursor: pointer;
+	gap: 8px;
+}
+
+.colorIcon {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	border: 1px solid #000000;
+	flex-shrink: 0;
+}
+
+.widthIcon {
+	width: 20px;
+	height: 20px;
+	flex-shrink: 0;
 }
 
 /* Убираем бордер у последнего в radiogroup, чтобы не было двойного бордера */

@@ -40,6 +40,12 @@ export const Option = (props: OptionProps) => {
 			tabIndex={0}
 			data-testid={`select-option-${value}`}
 			ref={optionRef}>
+			{optionClassName && (
+				<div 
+					className={`${styles.colorIcon} ${styles[optionClassName]}`}
+					style={{ backgroundColor: value }}
+				/>
+			)}
 			<Text family={isFontFamilyClass(className) ? className : undefined}>
 				{title}
 			</Text>

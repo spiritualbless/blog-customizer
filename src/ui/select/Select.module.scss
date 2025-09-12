@@ -28,6 +28,7 @@
 	background: rgb(255 255 255);
 	outline: 1px solid #000000;
 	cursor: pointer;
+	gap: 10px;
 }
 
 .placeholder[data-selected='true'] {
@@ -71,6 +72,15 @@
 	background-color: rgb(255 255 255 / 100%);
 	border: 1px;
 	cursor: pointer;
+	gap: 10px;
+}
+
+.colorIcon {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	border: 1px solid #000000;
+	flex-shrink: 0;
 }
 
 .option[aria-selected='true'] {

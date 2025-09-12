@@ -15,6 +15,9 @@ module.exports = {
 			: 'static/scripts/[name].js', // имя нашего бандла
 		publicPath: '/',
 	},
+	stats: {
+		warnings: false
+	},
 	//Нужно помочь вебпаку научится работать с jsx и tsx файлами для этого используют ts loader
 	module: {
 		rules: [
@@ -64,12 +67,18 @@ module.exports = {
 						},
 					},
 					'postcss-loader',
-					{
-						loader: 'sass-loader',
-						options: {
-							sourceMap: true,
+				{
+					loader: 'sass-loader',
+					options: {
+						sourceMap: true,
+						sassOptions: {
+							quietDeps: true,
+							silenceDeprecations: ['legacy-js-api', 'import'],
+							verbose: false
 						},
+						additionalData: `$quietDeps: true;`
 					},
+				},
 				],
 			},
 		],

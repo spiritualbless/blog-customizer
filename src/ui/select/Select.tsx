@@ -67,12 +67,17 @@ export const Select = (props: SelectProps) => {
 						styles.placeholder,
 						(styles as Record<string, string>)[optionClassName]
 					)}
-					data-status={status}
 					data-selected={!!selected?.value}
 					onClick={handlePlaceHolderClick}
 					role='button'
 					tabIndex={0}
 					ref={placeholderRef}>
+					{selected?.optionClassName && (
+						<div 
+							className={`${styles.colorIcon} ${styles[selected.optionClassName]}`}
+							style={{ backgroundColor: selected.value }}
+						/>
+					)}
 					<Text
 						family={
 							isFontFamilyClass(selected?.className)

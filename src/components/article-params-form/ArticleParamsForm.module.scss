@@ -1,11 +1,13 @@
 .container {
 	position: fixed;
 	left: 0;
+	top: 0;
 	width: 616px;
 	height: 100%;
 	overflow: scroll;
 	transform: translate(-616px);
 	transition: transform 0.5s ease;
+	z-index: 1000;
 }
 
 .container_open {
@@ -25,8 +27,16 @@
 	border-right: 1px solid #000000;
 }
 
+.formContent {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	flex: 1;
+}
+
 .bottomContainer {
 	display: flex;
 	justify-content: space-between;
 	margin-top: auto;
+	padding-top: 24px;
 }
