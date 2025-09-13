@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { Article } from './components/article/Article';
 import { ArticleParamsForm } from './components/article-params-form/ArticleParamsForm';
-import { defaultArticleState, ArticleStateType } from './constants/articleProps';
+import { defaultArticleState, type ArticleStateType } from './constants/articleProps';
 
 import './styles/index.scss';
 import styles from './styles/index.module.scss';
@@ -13,32 +13,7 @@ const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 
 const App = () => {
-	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const [articleState, setArticleState] = useState<ArticleStateType>(defaultArticleState);
-	const [formState, setFormState] = useState<ArticleStateType>(defaultArticleState);
-
-	const handleSidebarToggle = () => {
-		setIsSidebarOpen(!isSidebarOpen);
-	};
-
-	const handleSidebarClose = () => {
-		setIsSidebarOpen(false);
-	};
-
-	const handleApply = () => {
-		setArticleState(formState);
-		setIsSidebarOpen(false);
-	};
-
-	const handleReset = () => {
-		setFormState(defaultArticleState);
-		setArticleState(defaultArticleState);
-		setIsSidebarOpen(false);
-	};
-
-	const handleFormChange = (newFormState: ArticleStateType) => {
-		setFormState(newFormState);
-	};
 
 	return (
 		<main
@@ -52,15 +27,7 @@ const App = () => {
 					'--bg-color': articleState.backgroundColor.value,
 				} as CSSProperties
 			}>
-			<ArticleParamsForm 
-				isOpen={isSidebarOpen}
-				onToggle={handleSidebarToggle}
-				onClose={handleSidebarClose}
-				formState={formState}
-				onFormChange={handleFormChange}
-				onApply={handleApply}
-				onReset={handleReset}
-			/>
+			<ArticleParamsForm articleState={articleState} onStateChange={setArticleState} />
 			<Article />
 		</main>
 	);

@@ -2,8 +2,6 @@ import { useRef } from 'react';
 import { OptionType } from 'src/constants/articleProps';
 import { Text } from 'src/ui/text';
 import { useEnterSubmit } from './hooks/useEnterSubmit';
-import wideIcon from '../../images/wide.svg';
-import narrowIcon from '../../images/narrow.svg';
 
 import styles from './RadioGroup.module.scss';
 
@@ -26,7 +24,7 @@ export const Option = (props: OptionProps) => {
 	useEnterSubmit({ onChange, option });
 
 	const inputId = `${groupName}_radio_item_with_value__${value}`;
-	const isChecked = value === selected.value;
+	const isChecked = value === selected.title;
 
 	return (
 		<div
@@ -46,26 +44,6 @@ export const Option = (props: OptionProps) => {
 				tabIndex={-1}
 			/>
 			<label className={styles.label} htmlFor={inputId}>
-				{option.optionClassName && (
-					<div 
-						className={`${styles.colorIcon} ${styles[option.optionClassName]}`}
-						style={{ backgroundColor: option.value }}
-					/>
-				)}
-				{option.optionClassName === 'wide' && (
-					<img 
-						src={wideIcon} 
-						alt="широкий" 
-						className={styles.widthIcon}
-					/>
-				)}
-				{option.optionClassName === 'narrow' && (
-					<img 
-						src={narrowIcon} 
-						alt="узкий" 
-						className={styles.widthIcon}
-					/>
-				)}
 				<Text size={18} uppercase>
 					{title}
 				</Text>

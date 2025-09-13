@@ -72,12 +72,6 @@ export const Select = (props: SelectProps) => {
 					role='button'
 					tabIndex={0}
 					ref={placeholderRef}>
-					{selected?.optionClassName && (
-						<div 
-							className={`${styles.colorIcon} ${styles[selected.optionClassName]}`}
-							style={{ backgroundColor: selected.value }}
-						/>
-					)}
 					<Text
 						family={
 							isFontFamilyClass(selected?.className)
