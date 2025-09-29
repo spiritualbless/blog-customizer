@@ -34,7 +34,7 @@ export const Option = (props: OptionProps) => {
 
 	return (
 		<li
-			className={clsx(styles.option, styles[optionClassName || ''])}
+			className={clsx(styles.option, optionClassName)}
 			value={value}
 			onClick={handleClick(value)}
 			tabIndex={0}

@@ -81,113 +81,190 @@
 	background: var(--grey, #c4c4c4);
 }
 
-@mixin option-color-before {
-	content: '';
-	width: 35px;
-	height: 35px;
-	margin-right: 10px;
+.option-black,
+.option-white,
+.option-gray,
+.option-pink,
+.option-fuchsia,
+.option-yellow,
+.option-green,
+.option-blue,
+.option-purple,
+.placeholder.option-black,
+.placeholder.option-white,
+.placeholder.option-gray,
+.placeholder.option-pink,
+.placeholder.option-fuchsia,
+.placeholder.option-yellow,
+.placeholder.option-green,
+.placeholder.option-blue,
+.placeholder.option-purple {
+	padding-left: 60px; /* Добавляем отступ для текста, чтобы не перекрывался с квадратом */
 }
 
-.option-black::before {
-	@include option-color-before;
-	background-color: #000000;
+@mixin option-color-before {
+	content: '';
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	width: 35px;
+	height: 35px;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+	transform: translateY(-50%);
 }
 
 @mixin option-color-after {
 	content: '';
 	position: absolute;
-	left: 26px;
+	left: 19px;
+	top: 50%;
 	width: 17px;
 	height: 17px;
-	border-radius: 100%;
+	border-radius: 50%;
+	transform: translateY(-50%);
+	background-color: #ffffff;
 }
 
-.option-black[data-selected='true']::after {
+/* Стили для выбранных цветов (с кружками) - только для плейсхолдера */
+.placeholder.option-black::after {
 	@include option-color-after;
 	background-color: #ffffff;
 }
 
-.option-white::before {
-	@include option-color-before;
-	box-sizing: border-box;
-	background-color: #ffffff;
-	border: 1px solid #000000;
-}
-
-.option-white[data-selected='true']::after {
+.placeholder.option-white::after {
 	@include option-color-after;
 	background-color: #000000;
 }
 
-.option-gray::before {
+.placeholder.option-gray::after {
+	@include option-color-after;
+	background-color: #ffffff;
+}
+
+.placeholder.option-pink::after {
+	@include option-color-after;
+	background-color: #ffffff;
+}
+
+.placeholder.option-fuchsia::after {
+	@include option-color-after;
+	background-color: #ffffff;
+}
+
+.placeholder.option-yellow::after {
+	@include option-color-after;
+	background-color: #ffffff;
+}
+
+.placeholder.option-green::after {
+	@include option-color-after;
+	background-color: #ffffff;
+}
+
+.placeholder.option-blue::after {
+	@include option-color-after;
+	background-color: #ffffff;
+}
+
+.placeholder.option-purple::after {
+	@include option-color-after;
+	background-color: #ffffff;
+}
+
+/* Стили для плейсхолдера с цветовыми квадратами (без кружков) */
+.placeholder.option-black::before {
+	@include option-color-before;
+	background-color: #000000;
+}
+
+.placeholder.option-white::before {
+	@include option-color-before;
+	background-color: #ffffff;
+}
+
+.placeholder.option-gray::before {
 	@include option-color-before;
 	background-color: #c4c4c4;
 }
 
-.option-gray[data-selected='true']::after {
-	@include option-color-after;
-	background-color: #ffffff;
-}
-
-.option-pink::before {
+.placeholder.option-pink::before {
 	@include option-color-before;
 	background-color: #feafe8;
 }
 
-.option-pink[data-selected='true']::after {
-	@include option-color-after;
-	background-color: #ffffff;
-}
-
-.option-fuchsia::before {
+.placeholder.option-fuchsia::before {
 	@include option-color-before;
 	background-color: #fd24af;
 }
 
-.option-fuchsia[data-selected='true']::after {
-	@include option-color-after;
-	background-color: #ffffff;
-}
-
-.option-yellow::before {
+.placeholder.option-yellow::before {
 	@include option-color-before;
 	background-color: #ffc802;
 }
 
-.option-yellow[data-selected='true']::after {
-	@include option-color-after;
-	background-color: #ffffff;
-}
-
-.option-green::before {
+.placeholder.option-green::before {
 	@include option-color-before;
 	background-color: #80d994;
 }
 
-.option-green[data-selected='true']::after {
-	@include option-color-after;
-	background-color: #ffffff;
-}
-
-.option-blue::before {
+.placeholder.option-blue::before {
 	@include option-color-before;
 	background-color: #6fc1fd;
 }
 
-.option-blue[data-selected='true']::after {
-	@include option-color-after;
-	background-color: #ffffff;
-}
-
-.option-purple::before {
+.placeholder.option-purple::before {
 	@include option-color-before;
 	background-color: #5f0dee;
 }
 
-.option-purple[data-selected='true']::after {
-	@include option-color-after;
+/* Стили для опций в дропдаун списке с цветовыми квадратами (без кружков) */
+.option.option-black::before {
+	@include option-color-before;
+	background-color: #000000;
+}
+
+.option.option-white::before {
+	@include option-color-before;
 	background-color: #ffffff;
 }
+
+.option.option-gray::before {
+	@include option-color-before;
+	background-color: #c4c4c4;
+}
+
+.option.option-pink::before {
+	@include option-color-before;
+	background-color: #feafe8;
+}
+
+.option.option-fuchsia::before {
+	@include option-color-before;
+	background-color: #fd24af;
+}
+
+.option.option-yellow::before {
+	@include option-color-before;
+	background-color: #ffc802;
+}
+
+.option.option-green::before {
+	@include option-color-before;
+	background-color: #80d994;
+}
+
+.option.option-blue::before {
+	@include option-color-before;
+	background-color: #6fc1fd;
+}
+
+.option.option-purple::before {
+	@include option-color-before;
+	background-color: #5f0dee;
+}
+
+
 
 @mixin option-width-before {
 	content: '';
